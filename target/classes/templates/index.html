@@ -9,13 +9,19 @@
 <body>
 
     <form method="post" action="/upload" enctype="multipart/form-data">
-        <label>文件：</label>
-        <input type="file" name="file">
-        <label>多文件：</label>
-        <input type="file" name="files" multiple>
+<!--        <label>文件：</label>-->
+<!--        <input type="file" name="file">-->
+<!--        <label>多文件：</label>-->
+<!--        <input type="file" name="files" multiple>-->
+        <label>file-path:</label>
+        <input type="text" id="file-path" name="file-path" />
+        <input type="text" id="file-path3" name="file-path3" />
         <input type="submit" value="submit">
     </form>
-
+<script>
+    document.getElementById("file-path").value = "/Users/dingchao/Documents/test/1.mp3"
+    document.getElementById("file-path3").value = "/Users/dingchao/Documents/test/3.mp3"
+</script>
 
 
 </body>
