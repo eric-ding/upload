@@ -34,34 +34,35 @@ public class HelloController {
 
     @PostMapping("/upload")
     @ResponseBody
-    public String uploadFile(@RequestParam("option1") boolean option1, Model model) throws IOException {
-        if (option1) {
+    public String uploadFile(@RequestParam(value = "option1", required = false) boolean option1Selected) throws IOException {
+        if (option1Selected) {
             // 选项1 被选中
-//            String filePath = "/Users/dingchao/Documents/test/1.mp3";
-//            File file = new File(filePath);
-//            String fileName = file.getName();
-//            String contentType = "audio/mpeg";
-//            byte[] content = FileUtils.readFileToByteArray(file); // 使用 Apache Commons IO 读取文件内容
-//            MultipartFile multipartFile = new MockMultipartFile(fileName, fileName, contentType, content);
-//            if (!multipartFile.isEmpty()) {
-//                // 处理文件上传
-//                File dest = new File(path, file.getName()); // 设置文件上传的目标路径和文件名
-//                multipartFile.transferTo(dest);
-//            }
-//
-//            String filePath3 = "/Users/dingchao/Documents/test/3.mp3";
-//            File file3 = new File(filePath3);
-//            String fileName3 = file3.getName();
-//            String contentType3 = "audio/mpeg";
-//            byte[] content3 = FileUtils.readFileToByteArray(file3); // 使用 Apache Commons IO 读取文件内容
-//            MultipartFile multipartFile3 = new MockMultipartFile(fileName3, fileName3, contentType3, content3);
-//            if (!multipartFile3.isEmpty()) {
-//                // 处理文件上传
-//                File dest3 = new File(path, file3.getName()); // 设置文件上传的目标路径和文件名
-//                multipartFile3.transferTo(dest3);
-//            }
-//            return "redirect:/";
+            String filePath = "/Users/dingchao/Documents/test_src/1.mp3";
+            File file = new File(filePath);
+            String fileName = file.getName();
+            String contentType = "audio/mpeg";
+            byte[] content = FileUtils.readFileToByteArray(file); // 使用 Apache Commons IO 读取文件内容
+            MultipartFile multipartFile = new MockMultipartFile(fileName, fileName, contentType, content);
+            if (!multipartFile.isEmpty()) {
+                // 处理文件上传
+                File dest = new File(path, file.getName()); // 设置文件上传的目标路径和文件名
+                multipartFile.transferTo(dest);
+            }
+
+            String filePath3 = "/Users/dingchao/Documents/test_src/3.mp3";
+            File file3 = new File(filePath3);
+            String fileName3 = file3.getName();
+            String contentType3 = "audio/mpeg";
+            byte[] content3 = FileUtils.readFileToByteArray(file3); // 使用 Apache Commons IO 读取文件内容
+            MultipartFile multipartFile3 = new MockMultipartFile(fileName3, fileName3, contentType3, content3);
+            if (!multipartFile3.isEmpty()) {
+                // 处理文件上传
+                File dest3 = new File(path, file3.getName()); // 设置文件上传的目标路径和文件名
+                multipartFile3.transferTo(dest3);
+            }
             System.out.println("selected!");
+            return "redirect:/";
+
 //            model.addAttribute("option1Selected", true);
         } else {
             // 选项1 未被选中

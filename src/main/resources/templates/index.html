@@ -8,15 +8,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<!--<label><input type="checkbox" name="option" value="option1" th:checked="${option1Selected}">选项1</label><br>-->
+<!--<input type="button" value="提交" onclick="submitForm()">-->
 <label><input type="checkbox" name="option" value="option1" th:checked="${option1Selected}">选项1</label><br>
 <input type="button" value="提交" onclick="submitForm()">
 <script>
     function submitForm() {
         // 发送 AJAX 请求
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/upload",
+        //     data: {option1Selected: $('input[name="option"]').is(':checked')},
+        // });
         $.ajax({
             type: "POST",
             url: "/upload",
-            data: {option1Selected: $('input[name="option"]').is(':checked')},
+            data: {option1: $('input[name="option"]').is(':checked')},
         });
     }
 </script>
