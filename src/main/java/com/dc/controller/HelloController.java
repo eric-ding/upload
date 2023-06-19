@@ -1,6 +1,5 @@
 package com.dc.controller;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +15,7 @@ public class HelloController {
     private static final String UPLOAD_DIR = "/Users/dingchao/test";
 //    private static final String UPLOAD_DIR = "/home/dc/test";
 
-    @PostMapping(value = "/upload", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/upload")
     public List<String> upload(@RequestPart("musics") MultipartFile[] musics) throws IOException {
         List<String> fileNames = new ArrayList<>();
         if (musics.length > 0) {
@@ -28,6 +27,7 @@ public class HelloController {
                 }
             }
         }
+
         return fileNames;
     }
 }
