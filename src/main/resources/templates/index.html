@@ -23,12 +23,13 @@
                     console.log('文件上传成功');
                     console.log(response);
                     // 渲染下拉列表中的选项
-                    var fileList = response.fileNames;
-                    $.each(fileList, function(index, fileName) {
-                        $('#fileList').append($('<option>', {
-                            value: fileName,
-                            text: fileName
-                        }));
+                    var fileNames = response;
+                    var fileList = $('#fileList');
+                    fileList.empty();
+
+                    // 遍历数据，创建选项并添加到下拉列表中
+                    $.each(fileNames, function(index, fileName) {
+                        fileList.append($('<option>').text(fileName));
                     });
                 },
                 error: function(error) {
