@@ -24,13 +24,17 @@
                     console.log(response);
                     // 渲染下拉列表中的选项
                     var fileNames = response;
-                    var fileList = $('#fileList');
-                    fileList.empty();
+                    var opening = $('#opening');
+                    var ending = $('#ending');
+                    opening.empty();
+                    ending.empty();
 
                     // 遍历数据，创建选项并添加到下拉列表中
                     $.each(fileNames, function(index, fileName) {
-                        fileList.append($('<option>').text(fileName));
+                        opening.append($('<option>').text(fileName));
+                        ending.append($('<option>').text(fileName));
                     });
+
                 },
                 error: function(error) {
                     // 上传失败后的处理逻辑
@@ -49,8 +53,13 @@
 <button type="button" id="upload">上传</button>
 
 <!-- 下拉列表 -->
-<select id="fileList">
-    <option value="">请选择文件</option>
+<label>选择片头:</label>
+<select id="opening">
+    <option value="">请选择片头</option>
+</select>
+<label>选择片尾:</label>
+<select id="ending">
+    <option value="">请选择片尾</option>
 </select>
 
 </body>
