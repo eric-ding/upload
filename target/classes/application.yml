@@ -1,12 +1,11 @@
 server:
-  port: 8888
+  port: 8080
 
 Spring:
   servlet:
     multipart:
       max-file-size: 20MB
       max-request-size: 100MB
-      location: /Users/dingchao/Download/Ant.Man.and.the.Wasp.Quantumania.2023.1080p.WEBRip.DDP5.1.Atmos.x264-CM.torrent
 
 file:
   upload:
